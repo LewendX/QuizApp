@@ -1,5 +1,6 @@
 ﻿using QuizApp.Integration;
 using QuizApp.Models;
+using System.Net;
 using System.Net.Http.Json;
 
 namespace QuizApp;
@@ -35,26 +36,21 @@ public class QuizApiClient(HttpClient httpClient) : IDisposable
             throw new InvalidOperationException("Failed to fetch quiz questions from the API.");
         }
 
-        var Result = new List<QuizQuestion>();
+        var result = new List<QuizQuestion>();
 
         foreach (var item in quizResult.Results)
         {
-            Result.Add(new QuizQuestion
+            result.Add(new QuizQuestion
             (
-                CleanUpHtmlEntities(item.Category),
-                CleanUpHtmlEntities(item.Type),
-                CleanUpHtmlEntities(item.Difficulty),
-                CleanUpHtmlEntities(item.Question),
-                CleanUpHtmlEntities(item.CorrectAnswer),
-                item.IncorrectAnswers
+                WebUtility.HtmlDecode(item.Category),
+                WebUtility.HtmlDecode(item.Type),
+                WebUtility.HtmlDecode(item.Difficulty),
+                WebUtility.HtmlDecode(item.Question),
+                WebUtility.HtmlDecode(item.CorrectAnswer),
+                [.. item.IncorrectAnswers.Select(o => WebUtility.HtmlDecode(o))]
             ));
         }
 
-        return Result;
-    }
-
-    private string CleanUpHtmlEntities(string input)
-    {
-        return System.Net.WebUtility.HtmlDecode(input);
+        return result;
     }
 }
