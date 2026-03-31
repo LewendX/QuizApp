@@ -1,70 +1,75 @@
-﻿namespace QuizApp
+﻿namespace Quiz_med_api
 {
     partial class Form1
     {
-        /// <summary>
-        ///  Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        ///  Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
+            if (disposing && components != null) components.Dispose();
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
-            listBox1 = new ListBox();
+            tblquestion = new Label();
             button1 = new Button();
+            button2 = new Button();
+            button3 = new Button();
+            button4 = new Button();
+            tblScore = new Label();
+            btnNext = new Button();
+
             SuspendLayout();
-            // 
-            // listBox1
-            // 
-            listBox1.FormattingEnabled = true;
-            listBox1.Location = new Point(32, 32);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(706, 304);
-            listBox1.TabIndex = 0;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(626, 378);
-            button1.Name = "button1";
-            button1.Size = new Size(112, 34);
-            button1.TabIndex = 1;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
+
+            tblquestion.AutoSize = true;
+            tblquestion.Location = new Point(20, 20);
+            tblquestion.Text = "Question will appear here";
+
+            button1.Location = new Point(20, 60);
+            button1.Size = new Size(360, 40);
+            button1.Text = "Answer 1";
             button1.Click += button1_Click;
-            // 
-            // Form1
-            // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
-            AutoScaleMode = AutoScaleMode.Font;
+
+            button2.Location = new Point(20, 110);
+            button2.Size = new Size(360, 40);
+            button2.Text = "Answer 2";
+            button2.Click += button2_Click;
+
+            button3.Location = new Point(20, 160);
+            button3.Size = new Size(360, 40);
+            button3.Text = "Answer 3";
+            button3.Click += button3_Click;
+
+            button4.Location = new Point(20, 210);
+            button4.Size = new Size(360, 40);
+            button4.Text = "Answer 4";
+            button4.Click += button4_Click;
+
+            tblScore.AutoSize = true;
+            tblScore.Location = new Point(20, 260);
+            tblScore.Text = "Poäng: 0";
+
+            btnNext.Location = new Point(300, 260);
+            btnNext.Size = new Size(80, 30);
+            btnNext.Text = "Next";
+            btnNext.Click += btnNext_Click;
+
             ClientSize = new Size(800, 450);
-            Controls.Add(button1);
-            Controls.Add(listBox1);
-            Name = "Form1";
+            Controls.AddRange(new Control[] {
+                tblquestion, button1, button2, button3, button4, tblScore, btnNext
+            });
+
             Text = "Form1";
             ResumeLayout(false);
         }
 
-        #endregion
-
-        private ListBox listBox1;
-        private Button button1;
+        Label tblquestion;
+        Button button1;
+        Button button2;
+        Button button3;
+        Button button4;
+        Label tblScore;
+        Button btnNext;
     }
 }
