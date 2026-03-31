@@ -1,31 +1,22 @@
-# QuizApp
+Quiz App
 
-`QuizApp` är en grundmall för att komma igång med labben **Quiz App** i kursen **Programmering 2**.
+This is a simple quiz app made in C# using Windows Forms.
+The app gets questions from an online API and lets the user answer them.
 
-## Syfte
+How it works
+A question is loaded from the internet
+Four answers are shown
+Click one answer
+You get told if it is right or wrong
+Your score increases if correct
+Features
+Random questions from API
+Score system
+Saves result when closing the app
+How to run
+Open the project in Visual Studio
+Run the program
+Start answering questions
+API used
 
-Projektet är tänkt som en startpunkt där du kan bygga vidare på en quiz-applikation. Det innehåller en färdig projektstruktur och exempel på hur du kan koppla ihop ett Windows Forms-gränssnitt med en enkel API-klient.
-
-## Teknik
-
-- `.NET 10`
-- Windows Forms
-
-## Kom igång
-
-1. Öppna lösningen i Visual Studio.
-2. Bygg projektet.
-3. Starta applikationen.
-
-## Vidare arbete
-
-Se på Canvas
-
-## Struktur (översikt)
-
-- `Form1` – applikationens huvudsakliga UI.
-- `QuizApiClient` – exempel på hur quiz-data kan hämtas.
-
-## Licens
-
-Det här projektet används som kursmaterial/övningsmall.
+https://opentdb.com/
